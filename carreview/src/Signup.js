@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 function SignUp() {
   const [full_name, setFull_name] = useState("")
@@ -56,8 +57,8 @@ function SignUp() {
                 <b>Email</b>
               </label>
               <input
-              className="input"
-                type="email"
+                className="input"
+                type="text"
                 placeholder="Enter Email"
                 name="email"
                 id="email"
@@ -107,7 +108,7 @@ function SignUp() {
                 <a href="/">Terms & Privacy</a>.
               </p>
               <button type="submit" className="registerbtn" id="registerbtn">
-                Register
+                <a href="/">Register</a>
               </button>
             </div>
 
@@ -123,6 +124,7 @@ function SignUp() {
           </form>
         </div>
       </section>
+      <Footer></Footer>
     </div>
   );
 }

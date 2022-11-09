@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 function ReviewForm() {
   const handleSubmit = (e) => {
@@ -52,7 +53,8 @@ function ReviewForm() {
             </button>
           </form>
         </div>
-          </div>
+      </div>
+      <Footer></Footer>
     </div>
   );
 }
