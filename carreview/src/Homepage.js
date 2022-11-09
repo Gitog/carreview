@@ -7,12 +7,13 @@ import "./App.css";
 function Homepage() {
   const [search, setSearch] = useState([]);
   const [copySearch, setcopySearch] = useState([]);
-  const url = "https://random.dog/woof.json";
+  const url = "http://localhost:9292/cars";
 
   function fetcher() {
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         setSearch(result);
         setcopySearch(result);
       })
@@ -25,6 +26,21 @@ function Homepage() {
   useEffect(() => {
     fetcher();
   }, []);
+
+  // fetch("url", {
+  //   method: "GET",
+  //   headers: {
+  //     "access-control-allow-origin": "",
+  //     "Content-type": "application/json",
+  //     Accept: "application/json",
+  //   },
+  // })
+  //   .then((results) => results.json())
+  //   .then((res) => {
+  //     console.log(res);
+  //   });
+
+      
 
   function handleChange(event) {
     let searching = event.target.value.toLowerCase();
