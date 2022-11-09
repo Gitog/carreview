@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 
@@ -69,12 +70,16 @@ function Homepage() {
 
         {/* Sign In */}
         <div>
-          <button className="btn-sign">Sign In</button>
+          <Link to="./signin">
+            <button className="btn-sign">Sign In</button>
+          </Link>
         </div>
 
         {/* Reviews */}
         <div className="h-review">
-          <h2>Add to Cart</h2>
+          <Link to="/cars">
+            <h2>Add to Cars</h2>
+          </Link>
         </div>
       </div>
 
@@ -178,11 +183,15 @@ function Homepage() {
             </p>
           </div>
         </div>
-        <button className="btn-explore">Explore</button>
+        <Link to = "./reviews">
+          <button className="btn-explore">Explore</button>
+        </Link>
       </div>
       <div>
         <h2 className="reviews">Your opinion matters</h2>
-        <button className="share">Sign up and explore programs</button>
+        <Link to="./signup">
+          <button className="share">Sign up and explore cars</button>
+        </Link>
       </div>
     </div>
   );
