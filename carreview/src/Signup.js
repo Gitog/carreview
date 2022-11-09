@@ -1,33 +1,34 @@
-// import React from "react";
-// import SignUp from "./SignUp";
-// import { Route, Routes } from "react-router-dom";
-// import SignIn from "./SignIn";
-// import ReviewForm from "./ReviewForm";
-// import AddCar from "./AddCar";
-// function Main() {
-//   return (
-//     <div>
-//       <Routes>
-//         <Route path="/signUp" element={<SignUp />} />
-//         <Route path="/signIn" element={<SignIn />} />
-//         <Route path="/reviews" element={<ReviewForm />} />
-//         <Route path="/newcar" element={<AddCar />} />
-//       </Routes>
-//     </div>
-//   );
-// }
-
-// export default Main;
-
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 
 function SignUp() {
+  const [full_name, setFull_name] = useState("")
+  const [gender, setGender] = useState("")
+  const [email_address, setEmail_address] = useState("")  
+  const [password, setPassword] = useState("")
+
+  function handleSubmit(e){
+    e.preventDefault()
+    console.log('yes')
+    const user = {
+      full_name, gender, email_address, password
+    }
+    console.log(user)
+    
+    fetch('http://localhost:9292/new_users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+  }
+
   return (
     <div>
       <section id="signUp" className="page">
         <div className="form">
-          <form action="#" id="signUpForm">
+          <form action="#" id="signUpForm" onSubmit={handleSubmit}>
             <span className="closeBtn">
               <Link to="/">
                 <i className="fas fa-times"></i>
@@ -48,27 +49,19 @@ function SignUp() {
                 placeholder="Enter full_name"
                 name="full-name"
                 id="full-name"
-                required
-              />
-              <label htmlFor="username">
-                <b>Username</b>
-              </label>
-              <input
-                className="input"
-                type="text"
-                placeholder="Enter username"
-                name="username"
-                id="username"
+                onChange={(e)=>setFull_name(e.target.value)}
                 required
               />
               <label htmlFor="email">
                 <b>Email</b>
               </label>
               <input
-                type="text"
+              className="input"
+                type="email"
                 placeholder="Enter Email"
                 name="email"
                 id="email"
+                onChange={(e)=>setEmail_address(e.target.value)}
                 required
               />
               <label htmlFor="gender">
@@ -80,6 +73,7 @@ function SignUp() {
                 placeholder="Enter your gender"
                 name="gender"
                 id="gender"
+                onChange={(e)=>setGender(e.target.value)}
                 required
               />
 
@@ -92,10 +86,11 @@ function SignUp() {
                 placeholder="Enter Password"
                 name="psw"
                 id="psw"
+                onChange={(e)=>setPassword(e.target.value)}
                 required
               />
 
-              <label htmlFor="psw-repeat">
+              {/* <label htmlFor="psw-repeat">
                 <b>Repeat Password</b>
               </label>
               <input
@@ -104,8 +99,8 @@ function SignUp() {
                 placeholder="Repeat Password"
                 name="psw-repeat"
                 id="psw-repeat"
-                required
-              />
+                onChange={(e)=>password(e.target.value)}            
+              /> */}
 
               <p>
                 By creating an account you agree to our{" "}

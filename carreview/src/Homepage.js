@@ -6,6 +6,7 @@ import "./App.css";
 
 function Homepage() {
   const [search, setSearch] = useState([]);
+  const [make, setMake] = useState([])
   const [copySearch, setcopySearch] = useState([]);
   const url = "http://localhost:9292/cars";
 
@@ -13,15 +14,30 @@ function Homepage() {
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setSearch(result);
+        setMake(result);
         setcopySearch(result);
       })
+      
       .catch((error) => {
         console.error("console error:", error);
         console.log("Error!");
       });
   }
+  const makeList = make.map((make) => (
+    // const uniqueMake = [...new Set(make.make)]
+      <button id="product">{make.make}</button>
+    // </div>
+  ))
+
+  // function onlyUnique(value, index, self) {
+  //   return self.indexOf(value) === index;
+  // }
+  // var a = ['a', 1, 'a', 2, '1'];
+  // var unique = makeList.filter(onlyUnique);
+  
+  // console.log(unique); // ['a', 1, 2, '1']
 
   useEffect(() => {
     fetcher();
@@ -104,21 +120,9 @@ function Homepage() {
         <div>
           <h2 className="browse">Browse Our Categories</h2>
           <div className="browser-section">
-            <div className="api">
-              <button id="product">Mercedes</button>
-              <button id="product">Audi</button>
-              <button id="product">Mazda</button>
-            </div>
-            <div className="api">
-              <button id="product">BMW</button>
-              <button id="product">Subaru</button>
-              <button id="product">Lexus</button>
-            </div>
-            <div className="api">
-              <button id="product">Hyundai</button>
-              <button id="product">Ferari</button>
-              <button id="product">Tuk Tuk</button>
-            </div>
+          <div className='api' key={make.id}>
+            {makeList}
+          </div>
           </div>
         </div>
         <h2 className="reviews">Our Latest Reviews</h2>

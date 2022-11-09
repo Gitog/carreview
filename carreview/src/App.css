@@ -200,8 +200,9 @@ li{
 }
 .api{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  flex-direction: column;
+  flex-direction: row;
   margin: 10px;
   margin-left: 5%;
 
