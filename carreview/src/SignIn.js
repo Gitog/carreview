@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 function SignIn() {
   const handleSubmit = (e) => {
@@ -11,7 +12,7 @@ function SignIn() {
   };
 
   return (
-    <div>
+    <div className="sig">
       <section className="logInPage" id="logInPage">
         <div className="logIn">
           <form onSubmit={handleSubmit}>
@@ -67,6 +68,7 @@ function SignIn() {
           </form>
         </div>
       </section>
+     <Footer></Footer>
     </div>
   );
 }

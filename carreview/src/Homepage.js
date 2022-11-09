@@ -3,69 +3,19 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./index.css";
 import "./App.css";
+import Footer from "./Footer";
 
 function Homepage() {
-  const [search, setSearch] = useState([]);
-  const [make, setMake] = useState([])
-  const [copySearch, setcopySearch] = useState([]);
-  const url = "http://localhost:9292/cars";
 
-  function fetcher() {
-    fetch(url)
-      .then((res) => res.json())
-      .then((result) => {
-        // console.log(result);
-        setSearch(result);
-        setMake(result);
-        setcopySearch(result);
-      })
-      
-      .catch((error) => {
-        console.error("console error:", error);
-        console.log("Error!");
-      });
-  }
-  const makeList = make.map((make) => (
-    // const uniqueMake = [...new Set(make.make)]
-      <button id="product">{make.make}</button>
-    // </div>
-  ))
 
-  // function onlyUnique(value, index, self) {
-  //   return self.indexOf(value) === index;
+  // function handleChange(event) {
+  //   let searching = event.target.value.toLowerCase();
+  //   setSearch(
+  //     copySearch.filter((val) =>
+  //       val.description.toLowerCase().includes(searching)
+  //     )
+  //   );
   // }
-  // var a = ['a', 1, 'a', 2, '1'];
-  // var unique = makeList.filter(onlyUnique);
-  
-  // console.log(unique); // ['a', 1, 2, '1']
-
-  useEffect(() => {
-    fetcher();
-  }, []);
-
-  // fetch("url", {
-  //   method: "GET",
-  //   headers: {
-  //     "access-control-allow-origin": "",
-  //     "Content-type": "application/json",
-  //     Accept: "application/json",
-  //   },
-  // })
-  //   .then((results) => results.json())
-  //   .then((res) => {
-  //     console.log(res);
-  //   });
-
-      
-
-  function handleChange(event) {
-    let searching = event.target.value.toLowerCase();
-    setSearch(
-      copySearch.filter((val) =>
-        val.description.toLowerCase().includes(searching)
-      )
-    );
-  }
 
   return (
     <div>
@@ -85,7 +35,7 @@ function Homepage() {
           <input
             type="text"
             placeholder="Search"
-            onChange={handleChange}
+            // onChange={handleChange}
             // onBlur ={handleChange}
           ></input>
           <label>
@@ -103,28 +53,22 @@ function Homepage() {
         {/* Sign In */}
         <div>
           <Link to="./signin">
-            <button className="btn-sign">Sign In</button>
+            <button className="btn-sign">
+              <a href="/signIn">Sign In</a>
+            </button>
           </Link>
         </div>
 
         {/* Reviews */}
         <div className="h-review">
-          <Link to="/cars">
-            <h2>Add to Cars</h2>
-          </Link>
+          <h2>
+            <a href="/cars">Add to Cars</a>
+          </h2>
         </div>
       </div>
 
       {/*BODY */}
       <div className="section-b">
-        <div>
-          <h2 className="browse">Browse Our Categories</h2>
-          <div className="browser-section">
-          <div className='api' key={make.id}>
-            {makeList}
-          </div>
-          </div>
-        </div>
         <h2 className="reviews">Our Latest Reviews</h2>
         <div className="images">
           <div>
@@ -203,16 +147,19 @@ function Homepage() {
             </p>
           </div>
         </div>
-        <Link to = "./reviews">
-          <button className="btn-explore">Explore</button>
-        </Link>
+
+        <button className="btn-explore">
+          <a href="/cars">Explore</a>
+        </button>
       </div>
       <div>
         <h2 className="reviews">Your opinion matters</h2>
-        <Link to="./signup">
-          <button className="share">Sign up and explore cars</button>
-        </Link>
+
+          <button className="share">
+            <a href="/signup">Sign up and explore cars</a>
+          </button>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

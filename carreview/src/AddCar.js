@@ -1,16 +1,79 @@
-import React from "react";
+import React, { useState,useEffect} from "react";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 function AddCar() {
+   const [search, setSearch] = useState([]);
+   const [make, setMake] = useState([]);
+   const [copySearch, setcopySearch] = useState([]);
+   const url = "http://localhost:9292/cars";
+
+   function fetcher() {
+     fetch(url)
+       .then((res) => res.json())
+       .then((result) => {
+         // console.log(result);
+         setSearch(result);
+         setMake(result);
+         setcopySearch(result);
+       })
+
+       .catch((error) => {
+         console.error("console error:", error);
+         console.log("Error!");
+       });
+   }
+
+   const makeList = make.map((make) => (
+     // const uniqueMake = [...new Set(make.make)]
+     <button id="product">{make.make}</button>
+     // </div>
+   ));
+
+   // function onlyUnique(value, index, self) {
+   //   return self.indexOf(value) === index;
+   // }
+   // var a = ['a', 1, 'a', 2, '1'];
+   // var unique = makeList.filter(onlyUnique);
+
+   // console.log(unique); // ['a', 1, 2, '1']
+
+   useEffect(() => {
+     fetcher();
+   }, []);
+
   return (
     <div className="form">
+      <div>
+        <h2 className="browse">Browse Our Categories</h2>
+        <div className="browser-section">
+          <div className="api">
+            {makeList[0]}
+            {makeList[11]}
+            {makeList[2]}
+            {/* <button id="product">Mercedes</button>
+            <button id="product">Audi</button>
+            <button id="product">Mazda</button> */}
+          </div>
+          <div className="api">
+            {makeList[6]}
+            {makeList[4]}
+            {makeList[5]}
+          </div>
+          <div className="api">
+            {makeList[19]}
+            {makeList[10]}
+            {makeList[14]}
+          </div>
+        </div>
+      </div>
       <form action="post">
         <span className="closeBtn">
           <Link to="/">
             <i className="fas fa-times"></i>
           </Link>
         </span>
-        <div className="container">
+        <div className="container-1">
           <h1 className="h1">Add new car</h1>
           <br></br>
           <label htmlFor="make">
@@ -62,6 +125,7 @@ function AddCar() {
           </button>
         </div>
       </form>
+      <Footer></Footer>
     </div>
   );
 }
