@@ -182,7 +182,7 @@ function Homepage() {
       </div>
       <div>
         <h2 className="reviews">Your opinion matters</h2>
-        <button className="share">Sign up and share your experience</button>
+        <button className="share">Sign up and explore programs</button>
       </div>
     </div>
   );

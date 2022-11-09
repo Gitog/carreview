@@ -5,7 +5,7 @@ function Footer() {
     <div className="footer">
       <div className="foo">
         <div className="rows">
-          <h2>Stay Connected</h2>
+          <h2 className="h-footer">Stay Connected</h2>
           <ul>
             <li>Help Centre</li>
             <li> Contact us</li>
@@ -14,7 +14,7 @@ function Footer() {
           </ul>
         </div>
         <div className="rows">
-          <h2>Get More Info</h2>
+          <h2 className="h-footer">Get More Info</h2>
           <ul>
             <li>Trust Centre</li>
             <li>Terms of use</li>
@@ -23,7 +23,7 @@ function Footer() {
           </ul>
         </div>
         <div className="rows">
-          <h2>About us</h2>
+          <h2 className="h-footer">About us</h2>
           <p id="p-about">
             We provide a platform where people can rate and review services and
             products and the shops that sell them. It is consumer response -
@@ -31,7 +31,7 @@ function Footer() {
           </p>
         </div>
         <div className="rows">
-          <h2>Address</h2>
+          <h2 className="h-footer">Address</h2>
           <address>
             <a href="location">map location</a>
             <p id="p-abouts">car.review@gmail.com</p>
