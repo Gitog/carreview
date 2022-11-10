@@ -3,9 +3,16 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
 function AddCar() {
-   const [search, setSearch] = useState([]);
-   const [make, setMake] = useState([]);
-   const [copySearch, setcopySearch] = useState([]);
+  //  const [search, setSearch] = useState([]);
+   
+   const [carMake, setCarMake]=useState([])
+   const [make, setMake] = useState("");
+   const [model, setModel]= useState("")
+   const [price, setPrice] = useState(0)
+   const [image_url, setImage_url]=useState("")
+   
+   
+  //  const [copySearch, setcopySearch] = useState([]);
    const url = "http://localhost:9292/cars";
 
    function fetcher() {
@@ -13,9 +20,9 @@ function AddCar() {
        .then((res) => res.json())
        .then((result) => {
          // console.log(result);
-         setSearch(result);
-         setMake(result);
-         setcopySearch(result);
+        //  setSearch(result);
+         setCarMake(result);
+        //  setcopySearch(result);
        })
 
        .catch((error) => {
@@ -24,11 +31,27 @@ function AddCar() {
        });
    }
 
-   const makeList = make.map((make) => (
+   const makeList = carMake.map((make) => (
      // const uniqueMake = [...new Set(make.make)]
      <button id="product">{make.make}</button>
      // </div>
    ));
+   function handleSubmit(e){
+    e.preventDefault()
+    const car = {
+      make,model,price,image_url
+    }
+
+    console.log(car)
+    
+    fetch('http://localhost:9292/new_car', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(car)
+    })
+  }
 
    // function onlyUnique(value, index, self) {
    //   return self.indexOf(value) === index;
@@ -67,7 +90,7 @@ function AddCar() {
           </div>
         </div>
       </div>
-      <form action="post">
+      <form action="post" onSubmit={handleSubmit}>
         <span className="closeBtn">
           <Link to="/">
             <i className="fas fa-times"></i>
@@ -85,6 +108,7 @@ function AddCar() {
             placeholder="what is the make of the car"
             name="make"
             id="make"
+            onChange={(e)=>setMake(e.target.value)}
             required
           />
           <label htmlFor="model">
@@ -96,6 +120,7 @@ function AddCar() {
             placeholder="what is the model of the car"
             name="model"
             id="model"
+            onChange={(e)=>setModel(e.target.value)}
             required
           />
           <label htmlFor="url">
@@ -107,6 +132,7 @@ function AddCar() {
             placeholder="https://example.com"
             name="url"
             id="url"
+            onChange={(e)=>setImage_url(e.target.value)}
             required
           />
           <label htmlFor="price">
@@ -119,6 +145,7 @@ function AddCar() {
             id="currency-field"
             data-type="currency"
             placeholder="$1,000,000.00"
+            onChange={(e)=>setPrice(e.target.value)}
           />
           <button type="submit" className="registerbtn" id="registerbtn">
             Submit

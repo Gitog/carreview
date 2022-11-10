@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link ,NavLink } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 import logo from './Assets/logo.png'
@@ -8,23 +7,57 @@ import Footer from "./Footer";
 
 function Homepage() {
 
-  const [result, setResult]=useState("")
+  // const [searchMake, setSearchMake]=useState("")
+  const [cars, setCars] = React.useState('all');
+  const [copyCars, setCopycars] = React.useState([]);
+  const [filteredCars, setFilteredCars]=useState([])
+  const url = "http://localhost:9292/cars"
 
-  function handleChange(e){
-    e.preventDefault()
-    console.log(e.target.value)
+  function fetcher() {
+    fetch(url)
+      .then((res) => res.json())
+      .then((result) => {
+        setCopycars(result)
+        setCars(result)
+        setFilteredCars(result);
+      })
+
+      .catch((error) => {
+        console.error("console error:", error);
+        console.log("Error!");
+      });
   }
 
+  const makeList = filteredCars.map((car_make) => (
+    <option value="car1">
+      {/* <a href="/display"> */}
+      {car_make.make}
+      {/* </a> */}
+      </option>
+  ));
 
 
-  // function handleChange(event) {
-  //   let searching = event.target.value.toLowerCase();
-  //   setSearch(
-  //     copySearch.filter((val) =>
-  //       val.description.toLowerCase().includes(searching)
-  //     )
-  //   );
+  // function handleChange(e){
+  //   e.preventDefault()
+  //   console.log(e.target.value)
   // }
+
+
+  useEffect(() => {
+    fetcher();
+  }, []);
+
+  //  const searchMakeValue=searchMake.toLowerCase()
+  // const displayedCar=filteredCars.length>0?searchMakeValue:jobs
+  function handleChange(e) {
+    e.preventDefault()
+    console.log(e.target.value)
+    let searching = e.target.value.toLowerCase();
+    setCars(copyCars.filter(val =>
+      val.make.toLowerCase().includes(searching.toLowerCase())
+    )
+    );
+  }
 
   return (
     <div>
@@ -34,7 +67,6 @@ function Homepage() {
         {/* Home heading */}
         <div className="header">
           <NavLink to="/">
-            {/* <h2 id="h-t">ProductReview</h2> */}
             <img src = {logo} alt="Car Review" id="h-t"/>
           </NavLink>
         </div>
@@ -49,14 +81,14 @@ function Homepage() {
             // onBlur ={handleChange}
           ></input>
           <label>
+          
             <select>
-              <option value="car1">Car1</option>
-              <option value="car2">Car2</option>
-              <option value="car3">Car3</option>
-              <option value="car1">Car1</option>
-              <option value="car2">Car2</option>
-              <option value="car3">Car3</option>
+            <option value="car2">Select</option> 
+            {/* <Link to ="./display">  */}
+             {makeList}
+             {/* </Link> */}
             </select>
+      
           </label>
         </div>
 

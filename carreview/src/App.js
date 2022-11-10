@@ -8,6 +8,7 @@ import AddCar from "./AddCar"
 import SignIn from "./SignIn";
 import Signup from "./Signup";
 import ReviewForm from "./ReviewForm";
+import Display from "./Display";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/reviews" component={ReviewForm} />
+            <Route exact path="/display" component={Display} />
           </Switch>
         </div>
       </Router>
