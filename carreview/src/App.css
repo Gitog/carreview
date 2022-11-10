@@ -1,5 +1,5 @@
 .container{
-  background-color: #fff;
+  background-color: rgb(59, 185, 149);
   display: flex;
   justify-content: space-around;
 
@@ -13,10 +13,9 @@
 }
 
 #h-t{
-  font-size: 42px;
-  margin-top: 0px;
-  color: #286AE0;
-  text-decoration: none;
+ width :250px;
+ height :190px;
+ margin-top: -45px
 }
 
 input{
@@ -24,29 +23,44 @@ input{
   font-size: 16px;
   margin-top: 10px;
   border-radius: 12px;
+  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
   width: 400px;
 }
 
 select{
   padding: 8px;
   border-radius: 12px;
+  margin-left: 12px;
   width: 100px;
+  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
 }
 
 .btn-sign{
   padding: 11px;
+  margin-top: 10px;
+  margin-left: 5px;
   width: 100px;
-  font-size: 22px;
+  font-size: 16px;
   border-radius: 14px;
   font-weight: 600;
-  background-color: #fff;
-  color: #286AE0;
+  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+}
+.btn-sign a{
+  color: rgb(20, 20, 20);
+  text-decoration: none;
+}
+
+.btn-sign a:hover{
+  color: rgb(58, 67, 238);
 }
 .h-review{
-  color: #286AE0;
+  color: #101010;
   font-size: 17px;
   font-weight: 600;
-  background-color: #fff;
+  margin-top: 10px;
+}
+.h-review a{
+  text-decoration: none;
 }
 option{
   padding: 100px;
@@ -56,19 +70,22 @@ option{
 .section-b{
   background-color: #fff;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .reviews{
-  display: flex;
+  display: flex;;
   justify-content: center;
-  margin: 70px;
-  color: #286AE0;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #c4351c;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 .name{
-  color: #286AE0;
+  color: #c4351c;
   margin-left: 25%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .images{
@@ -86,6 +103,8 @@ img{
 }
 .logo{
   border-radius: 50%;
+  margin-top: 12px;
+  padding: 3px;
 }
 p{
   font-size: 20px;
@@ -99,7 +118,10 @@ p{
 }
 
 .desc{
+  color: #000;
   background-color: rgb(243, 244, 253);
+  box-shadow: 2px 2px 5px #333;
+  margin-bottom: 10px;
   padding: 40px;
   border-radius: 15px;
   font-weight: 500;
@@ -111,19 +133,31 @@ p{
   padding: 10px;
   font-size: 24px;
   border-radius: 16px;
-  margin-right: 10px;
+  margin: 10px;
 }
+
+/* .btn-explore a{
+  text-decoration: none;
+} */
 
 .share{
   padding: 9px;
   display: flex;
   justify-content: center;
-  background-color: #31AA68;
-  color: #fff;
   margin-left: 40%;
   margin-top: 30px;
+  margin-bottom: 15px;
   border-radius: 17px;
   font-size: 20px;
+}
+
+.share a{
+  text-decoration: none;
+  color: rgb(17, 16, 16);
+}
+
+.share a:hover{
+  color: #286AE0;
 }
 
 .browse{
@@ -144,6 +178,7 @@ p{
   background-color: #041513;
   /* display: flex; */
   color: #228fc1;
+  margin:0 auto;
 }
 .foo{
   display: flex;
@@ -159,6 +194,9 @@ p{
   display: flex;
   justify-content: center;
 }
+.h-footer{
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
 #p-about{
   color: #228fc1;
   margin-left: -40px;
@@ -170,8 +208,9 @@ p{
   font-size: 16px;
 }
 h5{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin: 2px;
-  margin-left: 30%;
+  margin-left: 25%;
 }
 li{
   padding: 5px;

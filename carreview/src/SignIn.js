@@ -1,10 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { Link,NavLink } from "react-router-dom";
+import logo from './Assets/logo.png'
 import Footer from "./Footer";
 
 function SignIn() {
+  const [email, setEmail]=useState("")
+  const [password, setPassword]=useState("")
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const user ={
+      email,
+      password
+    }
+
   };
 
   const handleSignIn = () => {
@@ -13,6 +23,18 @@ function SignIn() {
 
   return (
     <div className="sig">
+      <div id="signHeader">
+      <div className="header">
+          <NavLink to="/">
+            {/* <h2 id="h-t">ProductReview</h2> */}
+            <img src = {logo} alt="Car Review" id="h-t"/>
+          </NavLink>
+        </div>
+        <div id="welcome">
+          <h1 className="welcome">WELCOME TO CAR REVIEW SIGN IN PAGE</h1>
+          </div>
+        </div>
+
       <section className="logInPage" id="logInPage">
         <div className="logIn">
           <form onSubmit={handleSubmit}>
@@ -32,6 +54,7 @@ function SignIn() {
               <input
                 className="input"
                 type="text" placeholder="Enter Email" name="email" id="email2"
+                onChange={((e)=>e.target.value)}
                 required />
 
               <label htmlFor="psw">
@@ -43,21 +66,20 @@ function SignIn() {
                 placeholder="Enter Password"
                 name="psw"
                 id="psw2"
+                onChange={((e)=>e.target.value)}
                 required
               />
 
               <button
                 type="submit"
                 className="registerbtn"
-                onClick={handleSignIn}
-                href="/"
-              >
+                href="/">
                 Log In
               </button>
             </div>
 
             <div className="container-signin">
-              <p>
+              <p className="question">
                 Don't have an account?{" "}
                 <a href="/signUp" id="butt2">
                   Sign Up

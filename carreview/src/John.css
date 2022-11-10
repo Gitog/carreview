@@ -15,6 +15,18 @@
 
 }
 
+#signUp{
+  background-color: #fff;
+  margin: auto;
+  padding: auto;
+}
+
+.please{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: #b50e0e;
+}
+
 .form,
 .logIn {
   padding-top: 30px;
@@ -31,13 +43,12 @@
   color: dodgerblue;
 } */
 
-.registerbtn:hover {
-  opacity: 1;
-}
+
 
 .registerbtn {
-  background-color: #1f2937;
-  color: white;
+  /* background-color: #1f2937; */
+  color: rgb(240, 235, 235);
+  background-color: #730b0b;
   padding: 16px 20px;
   margin: 8px 0;
   border: none;
@@ -45,6 +56,10 @@
   width: 100%;
   opacity: 0.9;
   border-radius: 20px;
+}
+
+.registerbtn:hover {
+  background-color: #5f44e8;
 }
 
 span i:hover {
@@ -59,17 +74,19 @@ span {
 }
 
 .logInPage {
-  background-color: #1f2937;
+  /* background-color: #1f2937; */
   width: 100%;
   display: flex;
   /* position: absolute; */
   justify-content: center;
   align-content: center;
   padding-top: 12vh;
-  padding: 80px;
+  padding: 20px;
 }
 
-.container-1,
+/* .container-1{
+
+} */
 .container2 {
   padding: 20px;
   background-color: #ffff;
@@ -148,4 +165,39 @@ p {
 /* sign */
 .sig{
   width: 100%;
+}
+
+#signHeader{
+  display: flex;
+  padding: 10px;
+}
+
+h1{
+  text-align: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+#welcome{
+ margin-left: 160px;
+}
+.welcome{
+  text-align: center;
+  color:#b50e0e;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 10px;
+}
+.welcome1{
+  color: #b50e0e;
+  padding-bottom: 40px;
+  margin-top: -130px;
+}
+
+.container-signin{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.question{
+  color: #000;
+  
 }

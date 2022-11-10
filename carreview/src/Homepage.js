@@ -3,9 +3,18 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./index.css";
 import "./App.css";
+import logo from './Assets/logo.png'
 import Footer from "./Footer";
 
 function Homepage() {
+
+  const [result, setResult]=useState("")
+
+  function handleChange(e){
+    e.preventDefault()
+    console.log(e.target.value)
+  }
+
 
 
   // function handleChange(event) {
@@ -25,7 +34,8 @@ function Homepage() {
         {/* Home heading */}
         <div className="header">
           <NavLink to="/">
-            <h2 id="h-t">ProductReview</h2>
+            {/* <h2 id="h-t">ProductReview</h2> */}
+            <img src = {logo} alt="Car Review" id="h-t"/>
           </NavLink>
         </div>
 
@@ -34,8 +44,8 @@ function Homepage() {
         <div>
           <input
             type="text"
-            placeholder="Search"
-            // onChange={handleChange}
+            placeholder="Search i.e 'Audi'"
+            onChange={handleChange}
             // onBlur ={handleChange}
           ></input>
           <label>
@@ -61,9 +71,9 @@ function Homepage() {
 
         {/* Reviews */}
         <div className="h-review">
-          <h2>
-            <a href="/cars">Add to Cars</a>
-          </h2>
+        <button className="btn-sign">
+            <a href="/cars">Explore</a>
+            </button>
         </div>
       </div>
 
@@ -79,9 +89,7 @@ function Homepage() {
               alt="mazda"
             ></img>
             <h3 className="name">Audi RS3</h3>
-            <h5>Brand name</h5>
-            <h5>the make</h5>
-            <h5>released 2022, August</h5>
+            <h5>Released 2022, August</h5>
             <img
               className="logo"
               height="50"
@@ -104,9 +112,7 @@ function Homepage() {
               alt="premio"
             ></img>
             <h3 className="name">Toyota C-HR Hybrid</h3>
-            <h5>Brand name</h5>
-            <h5>the make</h5>
-            <h5>released 2022, August</h5>
+            <h5>Released 2022, August</h5>
             <img
               className="logo"
               height="50"
@@ -129,9 +135,7 @@ function Homepage() {
               alt="mazda"
             ></img>
             <h3 className="name">Audi RS3</h3>
-            <h5>Brand name</h5>
-            <h5>the make</h5>
-            <h5>released 2022, August</h5>
+            <h5>Released 2022, August</h5>
             <img
               className="logo"
               id="p-last"
@@ -148,9 +152,9 @@ function Homepage() {
           </div>
         </div>
 
-        <button className="btn-explore">
+        {/* <button className="btn-explore">
           <a href="/cars">Explore</a>
-        </button>
+        </button> */}
       </div>
       <div>
         <h2 className="reviews">Your opinion matters</h2>

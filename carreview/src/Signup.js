@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import logo from './Assets/logo.png'
 import Footer from "./Footer";
 
 function SignUp() {
@@ -27,6 +28,15 @@ function SignUp() {
 
   return (
     <div>
+      <div className="header">
+      <NavLink to="/">
+            {/* <h2 id="h-t">ProductReview</h2> */}
+            <img src = {logo} alt="Car Review" id="h-t"/>
+          </NavLink>
+          <div id="welcome">
+          <h1 className="welcome1">WELCOME TO CAR REVIEW SIGN UP PAGE</h1>
+          </div>
+      </div>
       <section id="signUp" className="page">
         <div className="form">
           <form action="#" id="signUpForm" onSubmit={handleSubmit}>
@@ -38,7 +48,7 @@ function SignUp() {
             <div className="container-1">
               <h1 className="h1">Register</h1>
               <br></br>
-              <p>Please fill in this form to have an account.</p>
+              <p className="please">Please fill in this form to have an account.</p>
               <br></br>
 
               <label htmlFor="full-name">
@@ -113,7 +123,7 @@ function SignUp() {
             </div>
 
             <div className="container-signin">
-              <p>
+              <p className="question">
                 Already have an account?{" "}
                 <a href="/signIn" id="signIn">
                   Sign in
