@@ -1,15 +1,17 @@
 import React, { useState,useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Footer from "./Footer";
 
 function AddCar() {
   //  const [search, setSearch] = useState([]);
    
    const [carMake, setCarMake]=useState([])
-   const [make, setMake] = useState("");
+   const [car, setMake] = useState("");
    const [model, setModel]= useState("")
    const [price, setPrice] = useState(0)
    const [image_url, setImage_url]=useState("")
+   const[cars, setCars] = useState([])
+   let {id} =useParams()
    
    
   //  const [copySearch, setcopySearch] = useState([]);
@@ -29,17 +31,59 @@ function AddCar() {
          console.error("console error:", error);
          console.log("Error!");
        });
-   }
+   }  
 
-   const makeList = carMake.map((make) => (
-     // const uniqueMake = [...new Set(make.make)]
-     <button id="product">{make.make}</button>
+   const makeList = carMake.map((car) => (
+    <div className="api" key={car.id}>
+      <img src={car.image_url}/>
+       <label id="product">
+      {car.make}
+     </label>
+     <label id="product">
+      {car.model}
+     </label>
+
+     <label id="product">
+      {car.price}
+     </label>
+
+      <button id="product" onClick={()=>handleDelete(id)}>Delete Car</button>
+    </div>
+    
      // </div>
    ));
+
+   function handleDelete(id){
+    //  data = this.state.carMake.filter(i =>i.id !== item.id)
+    // setCars(cars.filter(car=>car.id !== id))
+    setCars(!setCars)
+    // this.setCarMake({data})
+   }
+
+  //  function handleDelete(id) {
+  //   fetch(`http://localhost:9292/cars/${id}`, {
+  //     method: "DELETE",
+  //   }).then(() => fetcher());
+  //   console.log(fetcher)
+  // }
+  // function handleDelete(id){
+  //   fetch(`http://localhost:9292/cars/${id}`, {
+  //     method:"DELETE",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //        'Accept' : 'application/json'
+  //     },
+      
+  //   })
+  //   .then(res =>res.json())
+  //   .then(car =>console.log(car))
+  // }
+
+
    function handleSubmit(e){
     e.preventDefault()
     const car = {
-      make,model,price,image_url
+      car,model,price,image_url
     }
 
     console.log(car)
@@ -71,26 +115,26 @@ function AddCar() {
         <h2 className="browse">Browse Our Categories</h2>
         <div className="browser-section">
           <div className="api">
-            {makeList[0]}
-            {makeList[11]}
-            {makeList[2]}
+            {makeList}
+            {/* {makeList[11]}
+            {makeList[2]} */}
             {/* <button id="product">Mercedes</button>
             <button id="product">Audi</button>
             <button id="product">Mazda</button> */}
           </div>
-          <div className="api">
+          {/* <div className="api">
             {makeList[6]}
             {makeList[4]}
             {makeList[5]}
-          </div>
-          <div className="api">
+          </div> */}
+          {/* <div className="api">
             {makeList[19]}
             {makeList[10]}
             {makeList[14]}
-          </div>
+          </div> */}
         </div>
       </div>
-      <form action="post" onSubmit={handleSubmit}>
+      {/* <form action="post" onSubmit={handleSubmit}>
         <span className="closeBtn">
           <Link to="/">
             <i className="fas fa-times"></i>
@@ -99,15 +143,15 @@ function AddCar() {
         <div className="container-1">
           <h1 className="h1">Add new car</h1>
           <br></br>
-          <label htmlFor="make">
+          <label htmlFor="car">
             <b>Car Make</b>
           </label>
           <input
             className="input"
             type="text"
-            placeholder="what is the make of the car"
-            name="make"
-            id="make"
+            placeholder="what is the car of the car"
+            name="car"
+            id="car"
             onChange={(e)=>setMake(e.target.value)}
             required
           />
@@ -151,7 +195,7 @@ function AddCar() {
             Submit
           </button>
         </div>
-      </form>
+      </form> */}
       <Footer></Footer>
     </div>
   );

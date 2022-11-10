@@ -30,9 +30,7 @@ function Homepage() {
 
   const makeList = filteredCars.map((car_make) => (
     <option value="car1">
-      {/* <a href="/display"> */}
-      {car_make.make}
-      {/* </a> */}
+      <a href="/display">{car_make.make}</a>
       </option>
   ));
 
@@ -47,14 +45,14 @@ function Homepage() {
     fetcher();
   }, []);
 
-  //  const searchMakeValue=searchMake.toLowerCase()
-  // const displayedCar=filteredCars.length>0?searchMakeValue:jobs
+  
   function handleChange(e) {
     e.preventDefault()
-    console.log(e.target.value)
-    let searching = e.target.value.toLowerCase();
+    
+    let searching = e.target.value;
+    // console.log(searching)
     setCars(copyCars.filter(val =>
-      val.make.toLowerCase().includes(searching.toLowerCase())
+      console.log(val.make.toLowerCase().includes(searching.toLowerCase()))
     )
     );
   }

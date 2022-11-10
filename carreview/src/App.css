@@ -220,10 +220,24 @@ li{
   color: #fff;
 }
 
+
+.api{
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+  flex-direction: column;
+  /* margin: 5px; */
+  margin-left: 0.5%;
+
+}
+img{
+  height: 200px;
+  width: 200px;
+}
 /* products from API */
 #product{
-  padding: 50px;
-  width: 430px;
+  padding: 10px;
+  width: 130px;
   font-size: 30px;
   font-weight: 600;
   color: #fff;
@@ -236,13 +250,4 @@ li{
 #product:hover {
     transform: scale(1.3);
     transition-duration: 0.5s;
-}
-.api{
-  display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-around;
-  flex-direction: column;
-  /* margin: 5px; */
-  margin-left: 0.5%;
-
 }
