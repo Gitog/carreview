@@ -147,17 +147,6 @@ p {
   padding-top: 10px;
 }
 
-.textarea-01 textarea,
-.input[type=number] {
-  width: 86%;
-  display: flex;
-  padding: 15px 25px;
-  margin: 5px auto 45px 150px;
-  background-color: #ddd;
-
-
-}
-
 .h5 {
   text-align: center;
 }

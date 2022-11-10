@@ -79,14 +79,14 @@ function Homepage() {
             // onBlur ={handleChange}
           ></input>
           <label>
-          
+          <Link to ="./display">
             <select>
             <option value="car2">Select</option> 
-            {/* <Link to ="./display">  */}
+             
              {makeList}
-             {/* </Link> */}
+             
             </select>
-      
+            </Link>
           </label>
         </div>
 
@@ -102,7 +102,7 @@ function Homepage() {
         {/* Reviews */}
         <div className="h-review">
         <button className="btn-sign">
-            <a href="/cars">Explore</a>
+            <a href="/display">Explore</a>
             </button>
         </div>
       </div>
