@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link,NavLink} from 'react-router-dom'
 import logo from './Assets/logo.png'
 import "./App.css";
+import "./John.css";
 import Footer from './Footer';
 
 function Display() {
@@ -10,6 +11,13 @@ function Display() {
    const [model, setModel]= useState("")
    const [price, setPrice] = useState(0)
    const [image_url, setImage_url]=useState("")
+
+   //COMMENT USTESTATE 
+   const [review, setReviews]=useState([])
+   const [comment, setComment]= useState("")
+   const [score, setScore] = useState()
+   const [car_id, setCar_id]= useState(28)
+   const [user_id, setUser_id] = useState()
 
   const url = "http://localhost:9292/cars";
 
@@ -26,6 +34,19 @@ function Display() {
        });
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/reviews")
+       .then((res) => res.json())
+       .then((review) => {
+         setReviews(review);
+       })
+
+       .catch((error) => {
+         console.error("console error:", error);
+         console.log("Error!");
+       });
+  }, []);
+
   const carsList= cars.map((car)=>(
     <div className='cardiv' key={car.id}>
       <img src={car.image_url} className="carimage"/>
@@ -33,14 +54,20 @@ function Display() {
       <h4 className='carh4'>{car.model}</h4>
       <h5 className='carh5'>Kshs {car.price}</h5>
       <button onClick={()=>handleDelete(car.id)}>Delete Car</button>
-
+     
+      <p>Comortable Car but high fuel consumption</p>
+      <p>Rating : 9</p>
+  
+      
+     
       <div className="textarea-01">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleComment}>
             <h5 className="h5">Leave your comment</h5>
             <textarea
               placeholder="Leave your review"
               rows="4"
               cols="50"
+              onChange={(e)=>setComment(e.target.value)}
             ></textarea>
             <h5 className="h5">Leave your rating (1-10)</h5>
 
@@ -50,12 +77,12 @@ function Display() {
               min="1"
               max="10"
               placeholder="add-rating"
+              onChange={(e)=>setScore(e.target.value)}
             ></input>
             <button
               type="submit"
               className="registerbtn"
               href="/"
-              onClick = {handleClick}
             >
               Submit Review
             </button>
@@ -65,9 +92,6 @@ function Display() {
     </div>
   ))
 
-  function handleClick(){
-    alert("Sent Review!")
-  }
 
   function handleDelete(id){
      fetch(`http://localhost:9292/cars/${id}`,{
@@ -94,6 +118,26 @@ function Display() {
     })
   }
 
+//Handling comment section
+function handleComment(e){
+  e.preventDefault()
+  const commentObject= {
+    score,
+    comment,
+    car_id
+  }
+
+  console.log(commentObject)
+
+  fetch('http://localhost:9292/new_review', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentObject)
+    })
+}
+
   return (
     <div>
 
@@ -103,8 +147,8 @@ function Display() {
           </NavLink>
         </div>
         
-        <div>
-          <form action="post" onSubmit={handleSubmit}>
+        <div className="add-car">
+          <form action="post" onSubmit={handleSubmit} className="car_form">
         <span className="closeBtn">
           <Link to="/">
             <i className="fas fa-times"></i>
@@ -171,8 +215,6 @@ function Display() {
 
      <div className='cars'>
       {carsList} 
-
-      
 
      </div>
       <Footer />

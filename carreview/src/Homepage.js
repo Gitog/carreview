@@ -122,8 +122,6 @@ function Homepage() {
             <h5>Released 2022, August</h5>
             <img
               className="logo"
-              height="50"
-              width="70"
               src={require("./Assets/christina-wocintechchat-com-swi1DGRCshQ-unsplash.jpg")}
               alt="logo"
             ></img>
@@ -144,9 +142,9 @@ function Homepage() {
             <h3 className="name">Toyota C-HR Hybrid</h3>
             <h5>Released 2022, August</h5>
             <img
-              className="logo"
-              height="50"
+              height="80"
               width="70"
+              className="logo"
               src={require("./Assets/ali-morshedlou-WMD64tMfc4k-unsplash.jpg")}
               alt="logo"
             ></img>
@@ -169,8 +167,6 @@ function Homepage() {
             <img
               className="logo"
               id="p-last"
-              height="50"
-              width="70"
               src={require("./Assets/christina-wocintechchat-com-swi1DGRCshQ-unsplash.jpg")}
               alt="logo"
             ></img>

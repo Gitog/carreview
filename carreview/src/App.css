@@ -102,8 +102,10 @@ img{
   margin-left: -4%;
 }
 .logo{
+  width: 120px;
   border-radius: 50%;
   margin-top: 12px;
+  margin-right: 5px;
   padding: 3px;
 }
 p{
@@ -230,10 +232,10 @@ li{
   margin-left: 0.5%;
 
 }
-img{
+/* img{
   height: 200px;
   width: 200px;
-}
+} */
 /* products from API */
 #product{
   padding: 10px;
@@ -270,9 +272,12 @@ img{
   padding: 1px auto;
 }
 
+.textarea-01{
+  background-color: #bfc9d9;
+}
 .textarea-01 textarea,
 .input[type=number] {
-  width: 86%;
+  width: 50%;
   display: block;
   padding: 5px 5px;
   /* margin: 5px auto 45px 20px; */

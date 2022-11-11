@@ -190,3 +190,14 @@ h1{
   color: #000;
   
 }
+
+.add-car{
+  background-color: #a5e0c4;
+  margin-bottom: 20px;
+  width: 80%;
+  margin-left: 100px;
+}
+
+.car-form{
+  width: 70%;
+}
