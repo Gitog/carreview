@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Link ,NavLink } from "react-router-dom";
 import "./index.css";
 import "./App.css";
@@ -6,20 +6,13 @@ import logo from './Assets/logo.png'
 import Footer from "./Footer";
 
 function Homepage() {
-
-  // const [searchMake, setSearchMake]=useState("")
-  const [cars, setCars] = React.useState('all');
-  const [copyCars, setCopycars] = React.useState([]);
-  const [filteredCars, setFilteredCars]=useState([])
   const url = "http://localhost:9292/cars"
 
   function fetcher() {
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
-        setCopycars(result)
-        setCars(result)
-        setFilteredCars(result);
+       
       })
 
       .catch((error) => {
@@ -28,29 +21,13 @@ function Homepage() {
       });
   }
 
-  const makeList = filteredCars.map((car_make) => (
-    <option value="car1">
-      <a href="/display">{car_make.make}</a>
-      </option>
-  ));
-
+ 
 
   useEffect(() => {
     fetcher();
   }, []);
 
-  
-  function handleChange(e) {
-    e.preventDefault()
-    
-    let searching = e.target.value;
-    // console.log(searching)
-    setCars(copyCars.filter(val =>
-      console.log(val.make.toLowerCase().includes(searching.toLowerCase()))
-    )
-    );
-  }
-
+ 
   return (
     <div>
       {/* NAVBAR */}
@@ -69,7 +46,7 @@ function Homepage() {
           <input
             type="text"
             placeholder="Search i.e 'Audi'"
-            onChange={handleChange}
+            // onChange={handleChange}
             // onBlur ={handleChange}
           ></input>
           <label>
@@ -77,7 +54,7 @@ function Homepage() {
             <select>
             <option value="car2">Select</option> 
              
-             {makeList}
+             {/* {makeList} */}
              
             </select>
             </Link>
@@ -171,10 +148,6 @@ function Homepage() {
             </p>
           </div>
         </div>
-
-        {/* <button className="btn-explore">
-          <a href="/cars">Explore</a>
-        </button> */}
       </div>
       <div>
         <h2 className="reviews">Your opinion matters</h2>

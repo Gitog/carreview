@@ -50,16 +50,17 @@
   color: rgb(240, 235, 235);
   background-color: #730b0b;
   padding: 16px 20px;
-  margin: 8px 0;
+  margin: 8px 0 20px;
+  margin-left: 30%;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 40%;
   opacity: 0.9;
   border-radius: 20px;
 }
 
 .registerbtn:hover {
-  background-color: #5f44e8;
+  background-color: #53aec7;
 }
 
 span i:hover {
@@ -192,12 +193,13 @@ h1{
 }
 
 .add-car{
-  background-color: #a5e0c4;
+  background-color: #656565;
   margin-bottom: 20px;
-  width: 80%;
-  margin-left: 100px;
+  width: 50%;
+  margin-left: 25%;
+  border-radius: 13px;
 }
 
 .car-form{
-  width: 70%;
+  width: 40%;
 }

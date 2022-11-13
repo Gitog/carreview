@@ -1,5 +1,5 @@
 .container{
-  background-color: rgb(59, 185, 149);
+  background-color: #04050D;
   display: flex;
   justify-content: space-around;
 
@@ -72,6 +72,7 @@ option{
   width: 100%;
   margin: 0 auto;
   padding: 10px;
+  border-radius: 12px;
 }
 
 .reviews{
@@ -96,6 +97,11 @@ option{
 
 img{
   border-radius: 9px;
+  
+}
+img:hover{
+  transform: scale(1.2);
+  transition-duration: 0.5s;
 }
 
 .image3{
@@ -180,7 +186,8 @@ p{
   background-color: #041513;
   /* display: flex; */
   color: #228fc1;
-  margin:0 auto;
+  margin-top: 60px;
+  padding: 30px;
 }
 .foo{
   display: flex;
@@ -255,10 +262,11 @@ li{
 }
 
 .cars{
-  background-color: #fff;
-  width: 90%;
+  background-color: rgb(222, 222, 222);
+  width: 100%;
   margin-bottom: 70px;
-  
+  border-radius: 10px;
+  height: 130vh;
 }
 .cardiv{
   height: 240px;

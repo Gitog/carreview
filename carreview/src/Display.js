@@ -19,7 +19,7 @@ function Display() {
   const [reviews, setReviews] = useState([]);
   const [comment, setComment] = useState("");
   const [score, setScore] = useState();
-  const [car_id, setCar_id] = useState(28);
+  const [car_id, setCar_id] = useState();
   
   // 
 
@@ -79,7 +79,8 @@ function Display() {
             <textarea
               placeholder="Leave your review"
               rows="4"
-              cols="50"
+            cols="50"
+            required
               onChange={(e)=>setComment(e.target.value)}
             ></textarea>
             <h5 className="h5">Leave your rating (1-10)</h5>
@@ -90,6 +91,7 @@ function Display() {
               min="1"
               max="10"
               placeholder="add-rating"
+              required
               onChange={(e)=>setScore(e.target.value)}
             ></input>
           <button
@@ -98,7 +100,7 @@ function Display() {
               className="registerbtn"
               href="/"
             >
-              Submit Review
+              Submit
             </button>
           </form>
         </div>
@@ -249,7 +251,7 @@ function handleComment(e){
 
       <div className="cars">
         {carsList}
-        {carReview}
+        {/* {carReview} */}
       </div>
       <Footer />
     </div>
