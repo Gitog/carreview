@@ -298,3 +298,10 @@ li{
   text-align: center;
   margin-left: 20px;
 }
+
+/* search */
+.search{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}

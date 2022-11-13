@@ -35,12 +35,6 @@ function Homepage() {
   ));
 
 
-  // function handleChange(e){
-  //   e.preventDefault()
-  //   console.log(e.target.value)
-  // }
-
-
   useEffect(() => {
     fetcher();
   }, []);

@@ -17,10 +17,6 @@ function SignIn() {
 
   };
 
-  const handleSignIn = () => {
-    alert("Welcome Back!");
-  };
-
   return (
     <div className="sig">
       <div id="signHeader">
@@ -54,7 +50,7 @@ function SignIn() {
               <input
                 className="input"
                 type="text" placeholder="Enter Email" name="email" id="email2"
-                onChange={((e)=>e.target.value)}
+                onChange={(e)=>setEmail(e.target.value)}
                 required />
 
               <label htmlFor="psw">
@@ -66,7 +62,7 @@ function SignIn() {
                 placeholder="Enter Password"
                 name="psw"
                 id="psw2"
-                onChange={((e)=>e.target.value)}
+                onChange={(e)=>setPassword(e.target.value)}
                 required
               />
 

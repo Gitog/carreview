@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from './Assets/logo.png'
 import Footer from "./Footer";
@@ -100,19 +100,6 @@ function SignUp() {
                 onChange={(e)=>setPassword(e.target.value)}
                 required
               />
-
-              {/* <label htmlFor="psw-repeat">
-                <b>Repeat Password</b>
-              </label>
-              <input
-                className="input"
-                type="password"
-                placeholder="Repeat Password"
-                name="psw-repeat"
-                id="psw-repeat"
-                onChange={(e)=>password(e.target.value)}            
-              /> */}
-
               <p>
                 By creating an account you agree to our{" "}
                 <a href="/">Terms & Privacy</a>.
