@@ -40,31 +40,10 @@ function Homepage() {
           </NavLink>
         </div>
 
-        {/* Search  */}
-
-        <div>
-          <input
-            type="text"
-            placeholder="Search i.e 'Audi'"
-            // onChange={handleChange}
-            // onBlur ={handleChange}
-          ></input>
-          <label>
-          <Link to ="./display">
-            <select>
-            <option value="car2">Select</option> 
-             
-             {/* {makeList} */}
-             
-            </select>
-            </Link>
-          </label>
-        </div>
-
         {/* Sign In */}
         <div>
           <Link to="./signin">
-            <button className="btn-sign">
+            <button className="btn-sign" id="sign-in">
               <a href="/signIn">Sign In</a>
             </button>
           </Link>
